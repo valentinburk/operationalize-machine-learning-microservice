@@ -23,17 +23,24 @@ The project is a Python Flask application. May be run in local Docker infrastruc
 
 ## Setup the Environment
 
-* Create a virtualenv and activate it: For Windows `python -m venv .devops` then `. .devops/Scripts/activate`
+* Create a virtualenv and activate it: 
+    * For Windows (use Git Bash): `python -m venv .devops` then `. .devops/Scripts/activate`
+    * For Mac and Linux: `python3 -m venv ~/.devops` then `source ~/.devops/bin/activate`
 * Run `make install` to install the necessary dependencies
 
 ### Running `app.py`
 
-1. Standalone:  `python app.py`
+1. Standalone: install dependencies with `make install` then `python app.py`
 2. Build and Run in Docker:  `./run_docker.sh`
 3. Publish image to Docker Hub: `./upload_docker.sh`
 4. Run in Kubernetes:  `./run_kubernetes.sh`
 
 Running the script `./make_prediction.sh` will perform a test request to the app. This will work with all modes: standalone, docker, k8s.
+
+### Other commands
+
+* Perform Dockerfile lint: `hadolint Dockerfile` (requires Hadolint to be [installed](https://github.com/hadolint/hadolint))
+* Perform full lint for both Dockerfile and python code: `make lint`
 
 ### Kubernetes Steps
 
