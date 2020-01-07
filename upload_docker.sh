@@ -9,6 +9,8 @@ dockerpath=valentinburk/flask-prediction:0.1
 
 # Step 2:  
 # Authenticate & tag
+docker login
+docker tag $dockerpath $dockerpath
 echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
